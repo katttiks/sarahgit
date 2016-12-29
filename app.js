@@ -26,6 +26,8 @@ server.listen(process.env.PORT || 3000, function()
    console.log('%s listening to %s', server.name, server.url); 
 });
 
+server.post('/api/messages', connector.listen());
+
 server.get('/', restify.serveStatic({
  directory: __dirname,
  default: '/index.html'
