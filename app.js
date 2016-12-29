@@ -21,15 +21,18 @@ bot.dialog('/', [
     },
     function(session, results) {
     s = results.response;
+    
     greetings.callRAPI("/index?doc=" + results.response, function(err,data){
     //console.log(s);
     //console.log(data[7])
+    
     if (err) console.log(err);
     else 
     {
         var obj1 = JSON.parse(data);
         for(i=0;i<6;i++){
-        session.send("Document:%s   Score: %s", obj1[i]['id'],obj1[i]['scores'])
+        session.send("the key of awesome is me!");
+        session.send("Document:%s   Score: %s", obj1[i]['id'], obj1[i]['scores'])
         }
         //console.log(data);
     }
