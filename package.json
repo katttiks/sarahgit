@@ -1,0 +1,27 @@
+{
+  "name": "sarahgit",
+  "version": "1.0.0",
+  "description": "\"Building a bot in node js in ms bot framework\"",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katttiks/sarahgit.git"
+  },
+  "keywords": [
+    "bot",
+    "slack"
+  ],
+  "author": "kartikeya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/katttiks/sarahgit/issues"
+  },
+  "homepage": "https://github.com/katttiks/sarahgit#readme",
+  "dependencies": {
+    "botbuilder": "^3.4.4",
+    "restify": "^4.3.0"
+  }
+}
