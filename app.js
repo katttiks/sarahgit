@@ -20,12 +20,9 @@ bot.dialog('/', [
         builder.Prompts.text(session, 'Enter your topic');
     },
     function(session, results) {
-    s = results.response;
-    session.send(s);
     greetings.callRAPI("/index?doc=" + results.response, function(err,data){
     //console.log(s);
     //console.log(data[7])
-    session.send(data);
     if (err) console.log(err);
     else 
     {
