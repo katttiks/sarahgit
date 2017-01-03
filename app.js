@@ -30,6 +30,7 @@ bot.dialog('/', [
         for(i=0;i<6;i++){
         
         session.send("Document:%s   Score: %s", obj1[i]['id'], obj1[i]['scores'])
+        session.send("Thank you! Do you have any other query, say hi to me.")
         }
         //console.log(data);
     }
