@@ -27,8 +27,9 @@ bot.dialog('/', [
     else 
     {
         var obj1 = JSON.parse(data);
-        for(i=0;i<6;i++){        
-        session.send("Document:%s   Score: %s", obj1[i]['id'], obj1[i]['scores'], obj1[i]['url'])        
+        for(i=0;i<6;i++){  
+            console.log(obj1[i]['url'])      
+            session.send("Document:%s   Score: %s  URL: %s", obj1[i]['id'], obj1[i]['scores'], obj1[i]['url'])        
         }
         session.send("Thank you! Do you have any other query, say hi to me.")        //console.log(data);
     }
