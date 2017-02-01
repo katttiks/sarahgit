@@ -8,19 +8,21 @@ var greetings = require("./greetings.js");
 // appPassword: process.env.MY_APP_SECRET || "missing app password";  
 dotenv.load()
 
-console.log(process.env.MY_APP_ID);
+
 // Create chat bot and add dialogs
 var connector = new builder.ChatConnector({ appId:process.env.MY_APP_ID, appPassword: process.env.MY_APP_SECRET});
 var bot = new builder.UniversalBot(connector);
 
-console.log(connector);
 
 bot.dialog('/', [
     function(session) {
         builder.Prompts.text(session, 'Enter your topic');
     },
     function(session, results) {
-    greetings.callRAPI("/index?doc=" + results.response, function(err,data){
+    var relevant = results.response;
+    relevant = relevant.replace(/ is|what|a|the|or|in|of|be/gi,"")
+    console.log(relevant);
+    greetings.callRAPI("/index?doc=" + relevant, function(err,data){
     //console.log(s);
     //console.log(data[7])
     if (err) console.log(err);
@@ -28,7 +30,7 @@ bot.dialog('/', [
     {
         var obj1 = JSON.parse(data);
         for(i=0;i<6;i++){  
-            console.log(obj1[i]['url'])      
+                  
             session.send("Document:%s   Score: %s  URL: %s", obj1[i]['id'], obj1[i]['scores'], obj1[i]['url'])        
         }
         session.send("Thank you! Do you have any other query, say hi to me.")        //console.log(data);
@@ -47,8 +49,7 @@ server.listen(process.env.PORT || 3000, function()
 
 server.post('/api/messages', connector.listen());
 
-// server.get('/', restify.serveStatic({
-//  directory: __dirname,
-//  default: '/index.html'
-// }));
-// checking to see stuff!!! 
+server.get('/', restify.serveStatic({
+ directory: __dirname,
+ default: '/index.html'
+}));
