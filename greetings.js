@@ -2,7 +2,7 @@
 var request = require('request');
 var exports = module.exports = {};
 exports.callRAPI = function(query,callback){
-request('https://6dccf26c.ngrok.io'+ query, function (error, response, body) {
+request('https://d822ab58.ngrok.io'+ query, function (error, response, body) {
     if (!error && response.statusCode == 200) {
         callback(null,body); //print the list
     }
