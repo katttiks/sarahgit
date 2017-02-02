@@ -22,6 +22,7 @@ bot.dialog('/', [
     var relevant = results.response;
     relevant.replace('?',"")
     relevant = relevant.replace(/ is| what|what| a | are| the| or| in| of| be| case|/gi,"")
+    relevant = relevant.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
     console.log(relevant);
     greetings.callRAPI("/index?doc=" + relevant, function(err,data){
     //console.log(s);
@@ -55,4 +56,3 @@ server.get('/', restify.serveStatic({
  default: '/index.html'
 }));
  // adding changes
- 
