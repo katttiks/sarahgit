@@ -1,0 +1,11 @@
+ 
+    body {
+    background-image: url("http://360environmental.com.au/wp-content/uploads/2014/05/Oil-and-Gas.jpg");
+}
+        #bot {
+        position:absolute;
+        bottom:0;
+        right:10;
+    }
+    
+    

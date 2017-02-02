@@ -20,7 +20,8 @@ bot.dialog('/', [
     },
     function(session, results) {
     var relevant = results.response;
-    relevant = relevant.replace(/ is|what|a|the|or|in|of|be/gi,"")
+    relevant.replace('?',"")
+    relevant = relevant.replace(/ is| what|what| a | are| the| or| in| of| be| case|/gi,"")
     console.log(relevant);
     greetings.callRAPI("/index?doc=" + relevant, function(err,data){
     //console.log(s);
