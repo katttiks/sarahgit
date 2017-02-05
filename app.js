@@ -32,10 +32,8 @@ bot.dialog('/', [
     {
         var obj1 = JSON.parse(data);
         session.send("These are the top few documents as per your query: ")
-        for(i=0;i<6;i++){ 
-        var doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)
-        var linked_doc = doc_name.link(obj1[i]['url']);                  
-        session.send("%s", linked_doc)        
+        for(i=0;i<6;i++){                  
+        session.send("%s", obj1[i]['url'])        
         }
         session.send("Thank you! Do you have any other query, say hi to me.")        //console.log(data);
     }
