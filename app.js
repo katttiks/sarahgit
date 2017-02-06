@@ -43,10 +43,10 @@ bot.dialog('/', [
               new builder.HeroCard(session)
              // new builder.ThumbnailCard(session)              
               .title(doc_name)
-              .buttons([
+              .tap(
                   builder.CardAction.openUrl(session, obj1[i]['url'],doc_name)
                                     
-        ]);
+        );
           session.send(msg)
           session.send(obj1[i]['url'])   
           //buttonsnbkjnknj
