@@ -49,8 +49,8 @@ bot.dialog('/', [
               builder.CardAction.openUrl(session, obj1[i]['url']))                                    
         ]);
            //keep ranking
-          session.send(k + ". " + doc_name + "-\n" + obj1[i]['url'])   
-          k = k + 1
+           session.send(i)
+          session.send(doc_name + "-\n" + obj1[i]['url'])   
         }
         //session.endDialog(msg)
         //session.send("Thank you! Do you have any other query, say hi to me.")        //console.log(data);
