@@ -49,7 +49,7 @@ bot.dialog('/', [
         ]);
           
           session.send(i + ". " + doc_name + "-\n" + obj1[i]['url'])   
-          //buttons
+          //more changes
         }
         //session.endDialog(msg)
         //session.send("Thank you! Do you have any other query, say hi to me.")        //console.log(data);
