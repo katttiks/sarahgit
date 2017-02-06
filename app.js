@@ -44,10 +44,10 @@ bot.dialog('/', [
              // new builder.ThumbnailCard(session)              
               .title(doc_name)
               .buttons([
-                  builder.CardAction.openUrl(session, obj1[i]['url'])
+                  builder.CardAction.openUrl(session, obj1[i]['url'],doc_name)
                   
         ]);
-          session.send(obj1[i]['url'])   
+          session.send(msg)   
           //buttons  
         }
         //session.endDialog(msg)
