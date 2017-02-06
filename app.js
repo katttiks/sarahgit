@@ -42,11 +42,11 @@ bot.dialog('/', [
           .attachments([
               new builder.HeroCard(session)
              // new builder.ThumbnailCard(session)              
-              .title(linked_doc)
+              .title(doc_name)
               .tap(builder.CardAction.openUrl(session, obj1[i]['url']))
               //.tap(builder.CardAction.openUrl(session, obj1[i]['url']))
           ]);
-          session.send(obj1[i]['url'])     
+          session.send(msg)     
         }
         //session.endDialog(msg)
         //session.send("Thank you! Do you have any other query, say hi to me.")        //console.log(data);
