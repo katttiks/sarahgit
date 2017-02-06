@@ -53,6 +53,7 @@ bot.dialog('/', [
         }
         //session.endDialog(msg)
         //session.send("Thank you! Do you have any other query, say hi to me.")        //console.log(data);
+    //sanfjsnclsanc
     }
     //session.send('Docs: ' + data)//console.log(data);    
 });
