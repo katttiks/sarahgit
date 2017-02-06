@@ -49,7 +49,7 @@ bot.dialog('/', [
         ]);
           
           session.send(i + ". " + doc_name + "-\n" + obj1[i]['url'])   
-          //more changes
+          
         }
         //session.endDialog(msg)
         //session.send("Thank you! Do you have any other query, say hi to me.")        //console.log(data);
@@ -59,7 +59,7 @@ bot.dialog('/', [
     
     }
 ]);
-// Setup Restify Serverbkjnbjnoin
+// Setup Restify Serverblahbahblah
 var server = restify.createServer();
 server.listen(process.env.PORT || 3000, function() 
 {
