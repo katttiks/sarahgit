@@ -38,13 +38,12 @@ bot.dialog('/', [
           doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)
           console.log(i) 
           msg = new builder.Message(session)
-          .textFormat(builder.TextFormat.xml)
           .attachments([
               new builder.HeroCard(session)
               .title(doc_name)
               .tap(builder.CardAction.openUrl(session, obj1[i]['url']))
           ]);
-          session.send(obj1[i]['url'])     
+          session.send(msg)     
         }
         //session.endDialog(msg)
         //session.send("Thank you! Do you have any other query, say hi to me.")        //console.log(data);
