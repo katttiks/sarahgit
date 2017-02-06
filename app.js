@@ -47,9 +47,9 @@ bot.dialog('/', [
               .tap(
               builder.CardAction.openUrl(session, obj1[i]['url']))                                    
         ]);
-          
-          session.send(i + ". " + doc_name + "-\n" + obj1[i]['url'])   
-          
+          k = 1
+          session.send(k + ". " + doc_name + "-\n" + obj1[i]['url'])   
+          k = k + 1
         }
         //session.endDialog(msg)
         //session.send("Thank you! Do you have any other query, say hi to me.")        //console.log(data);
