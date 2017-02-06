@@ -59,7 +59,6 @@ bot.dialog('/', [
     }
 ]);
 // Setup Restify Server
-// Setup Restify Server
 var server = restify.createServer();
 server.listen(process.env.PORT || 3000, function() 
 {
