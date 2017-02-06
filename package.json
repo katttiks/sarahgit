@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/katttiks/sarahgit#readme",
   "dependencies": {
-    "botbuilder": "^3.4.4",
+    "botbuilder": "^3.6.0",
     "dotenv": "^2.0.0",
     "restify": "^4.3.0"
   }
