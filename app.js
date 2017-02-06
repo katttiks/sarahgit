@@ -36,7 +36,7 @@ bot.dialog('/', [
         k = 1
         for(i=0;i<6;i++){                  
         //session.send("%s", obj1[i]['url']) 
-          doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)
+          doc_name = (i+1) + ". " + obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)
           linked_doc = doc_name.link(obj1[i]['url'])
           console.log(i) 
           msg = new builder.Message(session)
