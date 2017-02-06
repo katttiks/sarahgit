@@ -43,7 +43,7 @@ bot.dialog('/', [
               new builder.HeroCard(session)
              // new builder.ThumbnailCard(session)              
               .title(doc_name)
-              .subtitle(obj1[i]['url'])
+              .subtitle(linked_doc)
               .tap(
               builder.CardAction.openUrl(session, obj1[i]['url']))                                    
         ]);
