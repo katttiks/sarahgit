@@ -48,7 +48,7 @@ bot.dialog('/', [
               builder.CardAction.openUrl(session, obj1[i]['url']))                                    
         ]);
           session.send(msg)   
-          //buttonsnbkjnknj
+          //buttons
         }
         //session.endDialog(msg)
         //session.send("Thank you! Do you have any other query, say hi to me.")        //console.log(data);
