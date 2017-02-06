@@ -42,9 +42,9 @@ bot.dialog('/', [
           .attachments([
               new builder.HeroCard(session)
              // new builder.ThumbnailCard(session)              
-              .title(doc_name)
-              .subtitle(obj1[i]['url'])
-              .buttons(
+              .title(obj[i]['url'])
+              .subtitle(doc_name)
+              .tap(
               builder.CardAction.openUrl(session, obj1[i]['url']))                                    
         ]);
           session.send(msg)   
