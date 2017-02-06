@@ -49,7 +49,7 @@ bot.dialog('/', [
               builder.CardAction.openUrl(session, obj1[i]['url']))                                    
         ]);
            //keep ranking
-           session.send(i)
+        
           session.send(doc_name + "-\n" + obj1[i]['url'])   
         }
         //session.endDialog(msg)
