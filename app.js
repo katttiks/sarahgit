@@ -48,7 +48,7 @@ bot.dialog('/', [
                   
         ]);
           session.send(msg, obj1[i]['url'])   
-          //button
+          //buttonsnbkjnknj
         }
         //session.endDialog(msg)
         //session.send("Thank you! Do you have any other query, say hi to me.")        //console.log(data);
