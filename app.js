@@ -31,7 +31,7 @@ bot.dialog('/', [
     else 
     {
         var obj1 = JSON.parse(data);
-        session.send("These are the top few documents as per your query: ")
+        session.send("These are the top few documents as per your query, they are:  ")
         var msg
         for(i=0;i<6;i++){                  
         //session.send("%s", obj1[i]['url']) 
