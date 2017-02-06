@@ -25,20 +25,34 @@ bot.dialog('/', [
     relevant = relevant.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
     console.log(relevant);
     greetings.callRAPI("/index?doc=" + relevant, function(err,data){
-    //console.log(s);
+    //console.log(s);   
     //console.log(data[7])
     if (err) console.log(err);
     else 
     {
         var obj1 = JSON.parse(data);
         session.send("These are the top few documents as per your query: ")
+        var msg
         for(i=0;i<6;i++){                  
-        session.send("%s", obj1[i]['url'])        
+        //session.send("%s", obj1[i]['url']) 
+          doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)
+          console.log(i) 
+          msg = new builder.Message(session)
+          .textFormat(builder.TextFormat.xml)
+          .attachments([
+              new builder.HeroCard(session)
+              .title(doc_name)
+              .text("Placeholder name")
+              .tap(builder.CardAction.openUrl(session, obj1[i]['url']))
+          ]);
+          session.send(msg)     
         }
-        session.send("Thank you! Do you have any other query, say hi to me.")        //console.log(data);
+        session.endDialog(msg)
+        //session.send("Thank you! Do you have any other query, say hi to me.")        //console.log(data);
     }
     //session.send('Docs: ' + data)//console.log(data);    
 });
+    
     }
 ]);
 // Setup Restify Server
