@@ -40,18 +40,13 @@ bot.dialog('/', [
           console.log(i) 
           msg = new builder.Message(session)
           .attachments([
-              //new builder.HeroCard(session)
+              new builder.HeroCard(session)
              // new builder.ThumbnailCard(session)              
-              //.title(linked_doc)
+              .title(linked_doc)
+              .tap(builder.CardAction.openUrl(session, obj1[i]['url']))
               //.tap(builder.CardAction.openUrl(session, obj1[i]['url']))
-              //.tap(builder.CardAction.openUrl(session, obj1[i]['url']))
-          {
-              name: doc_name,
-              contentUrl: obj1[i]['url']
-          }
-          
           ]);
-          session.send(msg)     
+          session.send(obj1[i]['url'])     
         }
         //session.endDialog(msg)
         //session.send("Thank you! Do you have any other query, say hi to me.")        //console.log(data);
