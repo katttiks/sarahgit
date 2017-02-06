@@ -39,13 +39,12 @@ bot.dialog('/', [
           linked_doc = doc_name.link(obj1[i]['url'])
           console.log(i) 
           msg = new builder.Message(session)
-          //.attachments([
+          .attachments([
               new builder.HeroCard(session)
              // new builder.ThumbnailCard(session)              
               .title(doc_name)
-              .buttons([
-                  builder.CardAction.openUrl(session, obj1[i]['url'],doc_name)
-                                    
+              .tap(
+              builder.CardAction.openUrl(session, obj1[i]['url']))                                    
         ]);
           session.send(msg)   
           //buttonsnbkjnknj
