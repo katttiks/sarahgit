@@ -33,6 +33,7 @@ bot.dialog('/', [
         var obj1 = JSON.parse(data);
         session.send("These are the top few documents as per your query, they are:  ")
         var msg
+        k = 1
         for(i=0;i<6;i++){                  
         //session.send("%s", obj1[i]['url']) 
           doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)
@@ -47,7 +48,7 @@ bot.dialog('/', [
               .tap(
               builder.CardAction.openUrl(session, obj1[i]['url']))                                    
         ]);
-          k = 1 //keep ranking
+           //keep ranking
           session.send(k + ". " + doc_name + "-\n" + obj1[i]['url'])   
           k = k + 1
         }
