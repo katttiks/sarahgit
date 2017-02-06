@@ -42,8 +42,8 @@ bot.dialog('/', [
           .attachments([
               new builder.HeroCard(session)
              // new builder.ThumbnailCard(session)              
-              .title(doc_name)
-              .subtitle(obj1[i]['url'])
+              .title(obj1[i]['url'])
+            //   .subtitle(obj1[i]['url'])
               .tap(
               builder.CardAction.openUrl(session, obj1[i]['url']))                                    
         ]);
