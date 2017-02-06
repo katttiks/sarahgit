@@ -47,7 +47,7 @@ bot.dialog('/', [
                   builder.CardAction.openUrl(session, obj1[i]['url'],doc_name)
                                     
         ]);
-          session.send(obj1[i]['url'])   
+          session.send(msg)   
           //buttonsnbkjnknj
         }
         //session.endDialog(msg)
