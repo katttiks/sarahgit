@@ -49,7 +49,7 @@ bot.dialog('/', [
               builder.CardAction.openUrl(session, obj1[i]['url']))                                    
         ]);
            //keep ranking
-           rank = String(i + 1)
+           rank = obj1[i]['rank']
         session.send(rank + ". " + doc_name +  "-\n" + obj1[i]['url'])
          // session.send(doc_name + "-\n" + obj1[i]['url'])   
         }
