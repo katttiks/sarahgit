@@ -30,13 +30,19 @@ bot.dialog('/', [
     if (err) console.log(err);
     else 
     {
+        
         obj1 = JSON.parse(data);
         session.send("These are the top few documents as per your query:  ")
-        for(i=0;i<5;i++){                  
+        
+        var i = 0
+        while(obj1[i]['scores']>0.70)
+        {                  
         //session.send("%s", obj1[i]['url']) 
           doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)         
            session.send(doc_name +  "<br>" + obj1[i]['url']) 
+           i++
         }
+        session.send(i + " results returned")
         builder.Prompts.text(session, 'Did you find what you were looking for?');        //console.log(data);       
     }
 });    
@@ -58,8 +64,7 @@ bot.dialog('/', [
         }
       else if(answer.toLowerCase().indexOf('yes')>-1||answer.toLowerCase().indexOf('yeah')>-1||answer.toLowerCase().indexOf('yup')>-1)  
       {
-          session.send("Well, that's great! A person as awesome as me generally gets the job done.")
-          session.send('Do you want to search some other topic')
+          session.send("Well, that's great! Happy to help.")
       }      
     },
 
@@ -79,16 +84,16 @@ bot.dialog('/', [
         }
         else if(answer.toLowerCase().indexOf('yes')>-1||answer.toLowerCase().indexOf('yeah')>-1||answer.toLowerCase().indexOf('yup')>-1)  
       {
-          session.send("Well, that's great! A person as awesome as me generally gets the job done.")
-          builder.Prompts.text(session, 'Do you want to search some other topic')
+          session.send("Well, that's great! Happy to help")
+         
       }     
   },
   function(session, results){
+      answer = results.response
       if(answer.toLowerCase().indexOf('no')>-1||answer.toLowerCase().indexOf('not')>-1||answer.toLowerCase().indexOf('nope')>-1)
       {
-           builder.Prompts.text(session, 'It was nice talking to you! ')
-      }
-        
+           session.send("I'm sorry that's all the information I have")
+      }        
 }    
 ]);
 // Setup Restify Serverblahbahblahblah
