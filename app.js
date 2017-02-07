@@ -43,18 +43,46 @@ bot.dialog('/', [
     },
 
     function(session, results){
-       if(results.response.indexOf('no')>-1||results.response.indexOf('not')>-1||results.response.indexOf('nope')>-1) 
-       session.send("All right, I'll render some more documents for you.")
-       session.send("Here they go: ")
+       answer = results.response
+       if(answer.toLowerCase().indexOf('no')>-1||answer.toLowerCase().indexOf('not')>-1||answer.toLowerCase().indexOf('nope')>-1) 
+        {
+             session.send("All right, I'll render some more documents for you.")
+             session.send("Here you go: ")
        
-       for(i=5;i<9;i++){                  
-        //session.send("%s", obj1[i]['url']) 
-          doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)           
-           session.send(doc_name +  "<br>" + obj1[i]['url']) 
+            for(i=5;i<9;i++){                  
+            //session.send("%s", obj1[i]['url']) 
+                doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)           
+                session.send(doc_name +  "<br>" + obj1[i]['url'])                 
+            }
+        builder.Prompts.text(session, 'Did you find what you were looking for this time?');        
         }
+      else if(answer.toLowerCase().indexOf('yes')>-1||answer.toLowerCase().indexOf('yeah')>-1||answer.toLowerCase().indexOf('yup')>-1)  
+      {
+          session.send("Well, that's great! A person as awesome as me generally gets the job done.")
+          session.send('Do you want to search some other topic')
+      }      
+    },
 
-    }
-
+  function(session, results){
+       answer = results.response
+       if(answer.toLowerCase().indexOf('no')>-1||answer.toLowerCase().indexOf('not')>-1||answer.toLowerCase().indexOf('nope')>-1) 
+        {
+             session.send("All right, I'll render some more documents for you.")
+             session.send("Here you go: ")
+       
+            for(i=0;i<3;i++){                  
+            //session.send("%s", obj1[i]['url']) 
+                doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)           
+                session.send(doc_name +  "<br>" + obj1[i]['url'])                 
+            }
+        builder.Prompts.text(session, 'Hope you found it this time!');       
+        }
+        else if(answer.toLowerCase().indexOf('yes')>-1||answer.toLowerCase().indexOf('yeah')>-1||answer.toLowerCase().indexOf('yup')>-1)  
+      {
+          session.send("Well, that's great! A person as awesome as me generally gets the job done.")
+          session.send('Do you want to search some other topic')
+      }     
+  }    
 ]);
 // Setup Restify Serverblahbahblahblah
 var server = restify.createServer();
