@@ -80,9 +80,16 @@ bot.dialog('/', [
         else if(answer.toLowerCase().indexOf('yes')>-1||answer.toLowerCase().indexOf('yeah')>-1||answer.toLowerCase().indexOf('yup')>-1)  
       {
           session.send("Well, that's great! A person as awesome as me generally gets the job done.")
-          session.send('Do you want to search some other topic')
+          builder.Prompts.text(session, 'Do you want to search some other topic')
       }     
-  }    
+  },
+  function(session, results){
+      if(answer.toLowerCase().indexOf('no')>-1||answer.toLowerCase().indexOf('not')>-1||answer.toLowerCase().indexOf('nope')>-1)
+      {
+           builder.Prompts.text(session, 'It was nice talking to you! ')
+      }
+        
+}    
 ]);
 // Setup Restify Serverblahbahblahblah
 var server = restify.createServer();
