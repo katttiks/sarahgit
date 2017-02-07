@@ -15,6 +15,7 @@ var bot = new builder.UniversalBot(connector);
 
 var relevant
 var obj1
+var doc_count = 0 
 
 bot.dialog('/', [
     function(session) {
@@ -32,7 +33,7 @@ bot.dialog('/', [
     {
         
         obj1 = JSON.parse(data);       
-        var doc_count = 0
+        
         while(obj1[doc_count]['scores']>0.70){
             doc_count++
         }
@@ -58,7 +59,7 @@ bot.dialog('/', [
              session.send("All right, I'll render some more documents for you.")
              session.send("Here you go: ")
        
-            for(i=5;i<9;i++){                  
+            for(i=doc_count;i<9;i++){                  
             //session.send("%s", obj1[i]['url']) 
                 doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)           
                 session.send(doc_name +  "<br>" + obj1[i]['url'])                 
