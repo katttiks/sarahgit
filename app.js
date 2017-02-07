@@ -51,7 +51,7 @@ bot.dialog('/', [
            //keep ranking
            rank = obj1[i]['rank']
          //session.send(rank)  
-        session.send(doc_name.bold() +  "<br>" + obj1[i]['url'])
+        session.send(doc_name +  "<br>" + obj1[i]['url'])
          // session.send(doc_name + "-\n" + obj1[i]['url'])   
         }
         //session.endDialog(msg)
