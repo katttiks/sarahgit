@@ -31,18 +31,21 @@ bot.dialog('/', [
     else 
     {
         
-        obj1 = JSON.parse(data);
-        session.send("These are the top few documents as per your query:  ")
+        obj1 = JSON.parse(data);       
+        var doc_count = 0
+        while(obj1[doc_count]['scores']>0.70){
+            doc_count++
+        }
         
-        var i = 0
-        while(obj1[i]['scores']>0.70)
+        session.send(doc_count + " results returned. They are: ")
+        var i 
+        for(i=0;i<doc_count;i++)
         {                  
         //session.send("%s", obj1[i]['url']) 
           doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)         
-           session.send(doc_name +  "<br>" + obj1[i]['url']) 
-           i++
+           session.send(doc_name +  "<br>" + obj1[i]['url'])            
         }
-        session.send(i + " results returned")
+        
         builder.Prompts.text(session, 'Did you find what you were looking for?');        //console.log(data);       
     }
 });    
@@ -93,7 +96,11 @@ bot.dialog('/', [
       if(answer.toLowerCase().indexOf('no')>-1||answer.toLowerCase().indexOf('not')>-1||answer.toLowerCase().indexOf('nope')>-1)
       {
            session.send("I'm sorry that's all the information I have")
-      }        
+      }
+      else if(answer.toLowerCase().indexOf('yes')>-1||answer.toLowerCase().indexOf('yeah')>-1||answer.toLowerCase().indexOf('yup')>-1)  
+      {
+          session.send("Well, that's great! Happy to help")        
+      }             
 }    
 ]);
 // Setup Restify Serverblahbahblahblah
