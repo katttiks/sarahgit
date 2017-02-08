@@ -19,7 +19,7 @@ var doc_count = 0
 
 bot.dialog('/', [
     function(session) {
-        builder.Prompts.text(session, 'Enter your topic');
+        builder.Prompts.text(session, 'Hey! Ask me a question');
     },
 
     function(session, results) {
