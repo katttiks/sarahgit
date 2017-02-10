@@ -13,9 +13,11 @@ dotenv.load()
 var connector = new builder.ChatConnector({ appId:process.env.MY_APP_ID, appPassword: process.env.MY_APP_SECRET});
 var bot = new builder.UniversalBot(connector);
 
-var relevant
+
+//var obj1
+
 var obj1
-var doc_count = 0 
+var relevant
 
 bot.dialog('/', [
     function(session) {
@@ -31,7 +33,7 @@ bot.dialog('/', [
     if (err) console.log(err);
     else 
     {
-        
+        var doc_count = 0 
         obj1 = JSON.parse(data);       
         
         while(obj1[doc_count]['scores']>0.70){
@@ -69,6 +71,7 @@ bot.dialog('/', [
       else if(answer.toLowerCase().indexOf('yes')>-1||answer.toLowerCase().indexOf('yeah')>-1||answer.toLowerCase().indexOf('yup')>-1)  
       {
           session.send("Well, that's great! Happy to help.")
+          
       }      
     },
 
