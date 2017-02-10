@@ -18,6 +18,7 @@ var bot = new builder.UniversalBot(connector);
 
 var obj1
 var relevant
+var doc_count
 
 bot.dialog('/', [
     function(session) {
@@ -33,7 +34,7 @@ bot.dialog('/', [
     if (err) console.log(err);
     else 
     {
-        var doc_count = 0 
+        doc_count = 0 
         obj1 = JSON.parse(data);       
         
         while(obj1[doc_count]['scores']>0.70){
