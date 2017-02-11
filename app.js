@@ -1,4 +1,4 @@
-// Add your requirements
+// Add your requirements
 var restify = require('restify'); 
 var builder = require('botbuilder'); 
 var dotenv = require('dotenv');
@@ -24,8 +24,25 @@ bot.dialog('/', [
     function(session) {
         builder.Prompts.text(session, 'Hey, I am your COGNITIVE Assistant.I talk and I know things. Ask me any question');
     },
+    function(session, results, next) {   
+    answer = results.response;
+    if (answer.toLowerCase().indexOf('key design parameters')>-1)
+        {
+            session.send("1. Structural Design<br>2. Control Systems<br>3. Plant Configuration<br>4. Power Distribution<br>5. Safety & Blowout<br>6. Jacket<br>7. Operating conditions<br>8. Environmental considerations");
+            session.userData.flag = "initial flow"
+            builder.Prompts.text(session, "What else do you want to know?")
+        }
+    else{
+        session.userData.flag = answer
+        next()
+    }
+    },
 
-    function(session, results) {
+    function(session, results)
+    {
+    if(!(session.userData.flag=="initial flow"))
+    relevant = session.userData.flag
+    else
     relevant = results.response;
     relevant.replace('?',"")
     relevant = relevant.replace(/ is| what|what| a | are| the| or| in| of| be| case|show| show|want| documents| get|get| me| some| on| relating/gi,"")
