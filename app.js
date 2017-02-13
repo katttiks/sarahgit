@@ -22,11 +22,11 @@ var doc_count
 
 bot.dialog('/', [
     function(session) {
-        builder.Prompts.text(session, 'Hey, I am your COGNITIVE Assistant.I talk and I know things. Ask me any question');
+        builder.Prompts.text(session, 'Hey, I am your Cognitive Assistant. I talk and I know things. Ask me any question');
     },
     function(session, results, next) {   
     answer = results.response;
-    if (answer.toLowerCase().indexOf('key design parameters')>-1)
+    if (answer.toLowerCase().indexOf('design parameters')>-1)
         {
             session.send("1. Structural Design<br>2. Control Systems<br>3. Plant Configuration<br>4. Power Distribution<br>5. Safety & Blowout<br>6. Jacket<br>7. Operating conditions<br>8. Environmental considerations");
             session.userData.flag = "initial flow"
@@ -54,7 +54,7 @@ bot.dialog('/', [
         doc_count = 0 
         obj1 = JSON.parse(data);       
         
-        while(obj1[doc_count]['scores']>0.70){
+        while(obj1[doc_count]['scores']>0.80){
             doc_count++
         }
         if(!doc_count == 0)
@@ -84,7 +84,7 @@ bot.dialog('/', [
              session.send("All right, I'll render some more documents for you.")
              session.send("Here you go: ")
        
-            for(i=doc_count;i<9;i++){                  
+            for(i=doc_count;i<doc_count + 5;i++){                  
             //session.send("%s", obj1[i]['url']) 
                 doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)           
                 session.send(doc_name +  "<br>" + obj1[i]['url'])                 
@@ -105,7 +105,7 @@ bot.dialog('/', [
              session.send("I'll render some more documents for you.")
              session.send("Here you go: ")
        
-            for(i=0;i<3;i++){                  
+            for(i=doc_count + 5;i<doc_count + 9;i++){                  
             //session.send("%s", obj1[i]['url']) 
                 doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)           
                 session.send(doc_name +  "<br>" + obj1[i]['url'])                 
