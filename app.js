@@ -61,7 +61,7 @@ bot.dialog('/', [
         {
         session.send(doc_count + " cognitive search results found. They are: ")
         var i 
-        for(i=0;i<20;i++)
+        for(i=0;i<doc_count;i++)
         {                  
         //session.send("%s", obj1[i]['url']) 
           doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)         
