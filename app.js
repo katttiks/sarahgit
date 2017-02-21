@@ -22,7 +22,7 @@ var doc_count
 
 bot.dialog('/', [
     function(session) {
-        builder.Prompts.text(session, 'Hey, I am your Cognitive Assistant. I talk and I know things. Ask me any question');
+        builder.Prompts.text(session, 'Hey, I am your Cognitive Assistant. Ask me any question');
     },
     function(session, results, next) {   
     answer = results.response;
@@ -59,7 +59,7 @@ bot.dialog('/', [
         }
         if(!doc_count == 0)
         {
-        session.send(doc_count + " cognitive search results found. They are: ")
+        session.send(doc_count + " matching results found. They are: ")
         var i 
         for(i=0;i<doc_count;i++)
         {                  
@@ -93,7 +93,7 @@ bot.dialog('/', [
         }
       else if(answer.toLowerCase().indexOf('yes')>-1||answer.toLowerCase().indexOf('yeah')>-1||answer.toLowerCase().indexOf('yup')>-1)  
       {
-          session.send("Well, that's great! Happy to help. Cognitively Yours")
+          session.send("Well, that's great! Happy to help.")
           
       }      
     },
@@ -114,7 +114,7 @@ bot.dialog('/', [
         }
         else if(answer.toLowerCase().indexOf('yes')>-1||answer.toLowerCase().indexOf('yeah')>-1||answer.toLowerCase().indexOf('yup')>-1)  
       {
-          session.send("Well, that's great! Happy to help. Cognitively Yours!")
+          session.send("Well, that's great! Happy to help.")
          
       }     
   },
@@ -126,7 +126,7 @@ bot.dialog('/', [
       }
       else if(answer.toLowerCase().indexOf('yes')>-1||answer.toLowerCase().indexOf('yeah')>-1||answer.toLowerCase().indexOf('yup')>-1)  
       {
-          session.send("Well, that's great! Happy to help. Cognitively Yours!")        
+          session.send("Well, that's great! Happy to help.")        
       }             
 }    
 ]);
