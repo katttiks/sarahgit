@@ -65,7 +65,7 @@ bot.dialog('/', [
         {                  
         //session.send("%s", obj1[i]['url']) 
           doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)         
-           session.send(doc_name +  "<br>" + obj1[i]['url'])            
+          session.send("Document name - " + doc_name +  "<br>" + "Relevance scores - " + obj1[i]['scores'] + "<br>" + "Document url - " + obj1[i]['url'])            
         }
         
         builder.Prompts.text(session, 'Did you find what you were looking for?');        //console.log(data);       
@@ -87,7 +87,7 @@ bot.dialog('/', [
             for(i=doc_count;i<doc_count + 5;i++){                  
             //session.send("%s", obj1[i]['url']) 
                 doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)           
-                session.send(doc_name +  "<br>" + obj1[i]['url'])                 
+                session.send("Document name - " + doc_name +  "<br>" + "Relevance scores - " + obj1[i]['scores'] + "<br>" + "Document url - " + obj1[i]['url'])                 
             }
         builder.Prompts.text(session, 'Did you find what you were looking for this time?');        
         }
@@ -108,7 +108,7 @@ bot.dialog('/', [
             for(i=doc_count + 5;i<doc_count + 9;i++){                  
             //session.send("%s", obj1[i]['url']) 
                 doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)           
-                session.send(doc_name +  "<br>" + obj1[i]['url'])                 
+               session.send("Document name - " + doc_name +  "<br>" + "Relevance scores - " + obj1[i]['scores'] + "<br>" + "Document url - " + obj1[i]['url'])                
             }
         builder.Prompts.text(session, 'Hope you found it this time!');       
         }
