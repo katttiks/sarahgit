@@ -64,8 +64,10 @@ bot.dialog('/', [
         for(i=0;i<doc_count;i++)
         {                  
         //session.send("%s", obj1[i]['url']) 
-          doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)         
-          session.send("Document name - " + doc_name +  "<br>" + "Relevance scores - " + obj1[i]['scores'] + "<br>" + "Document url - " + obj1[i]['url'])            
+          doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)
+          score = Number(obj1[i]['scores'])
+          score = Math.floor(score*100)    
+          session.send("Document name - " + doc_name +  "<br>" + "Relevance - " + score + "%" + "<br>" + "Document url - " + obj1[i]['url'])            
         }
         
         builder.Prompts.text(session, 'Did you find what you were looking for?');        //console.log(data);       
@@ -81,13 +83,15 @@ bot.dialog('/', [
        answer = results.response
        if(answer.toLowerCase().indexOf('no')>-1||answer.toLowerCase().indexOf('not')>-1||answer.toLowerCase().indexOf('nope')>-1) 
         {
-             session.send("All right, I'll render some more documents for you.")
+             session.send("All right, I'll render some more documents for you. They are")
              session.send("Here you go: ")
        
             for(i=doc_count;i<doc_count + 5;i++){                  
             //session.send("%s", obj1[i]['url']) 
-                doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)           
-                session.send("Document name - " + doc_name +  "<br>" + "Relevance scores - " + obj1[i]['scores'] + "<br>" + "Document url - " + obj1[i]['url'])                 
+                doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)
+                score = Number(obj1[i]['scores'])
+                score = Math.floor(score*100)    
+                session.send("Document name - " + doc_name +  "<br>" + "Relevance - " + score + "%" + "<br>" + "Document url - " + obj1[i]['url'])                 
             }
         builder.Prompts.text(session, 'Did you find what you were looking for this time?');        
         }
@@ -107,8 +111,9 @@ bot.dialog('/', [
        
             for(i=doc_count + 5;i<doc_count + 9;i++){                  
             //session.send("%s", obj1[i]['url']) 
-                doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)           
-               session.send("Document name - " + doc_name +  "<br>" + "Relevance scores - " + obj1[i]['scores'] + "<br>" + "Document url - " + obj1[i]['url'])                
+              score = Number(obj1[i]['scores'])
+              score = Math.floor(score*100)    
+              session.send("Document name - " + doc_name +  "<br>" + "Relevance - " + score + "%" + "<br>" + "Document url - " + obj1[i]['url'])               
             }
         builder.Prompts.text(session, 'Hope you found it this time!');       
         }
