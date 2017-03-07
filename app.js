@@ -18,7 +18,7 @@ var bot = new builder.UniversalBot(connector);
 
 var obj1
 var relevant
-var doc_count
+var doc_count = 0
 
 bot.dialog('/', [
     function(session) {
@@ -51,17 +51,17 @@ bot.dialog('/', [
     if (err) console.log(err);
     else 
     {
-        doc_count = 0 
+        // doc_count = 0 
         obj1 = JSON.parse(data);       
         
-        while(obj1[doc_count]['scores']>0.80){
-            doc_count++
-        }
-        if(!doc_count == 0)
-        {
-        session.send(doc_count + " matching results found. They are: ")
+        // while(obj1[doc_count]['scores']>0.80){
+        //     doc_count++
+        // }
+        //if(!doc_count == 0)
+        //{
+        session.send("Top matching results: ")
         var i 
-        for(i=0;i<doc_count;i++)
+        for(i=0;i<8;i++)
         {                  
         //session.send("%s", obj1[i]['url']) 
           doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)
@@ -69,12 +69,12 @@ bot.dialog('/', [
           score = Math.floor(score*100)    
           session.send("Document name - " + doc_name +  "<br>" + "Relevance - " + score + "%" + "<br>" + "Document url - " + obj1[i]['url'])            
         }
-        
+        doc_count = 8
         builder.Prompts.text(session, 'Did you find what you were looking for?');        //console.log(data);       
-    }
-    else{
-        session.send("Sorry, there were no matching results")
-    }
+    //}
+    // else{
+    //     session.send("Sorry, there were no matching results")
+    // }
     }
 });    
     },
