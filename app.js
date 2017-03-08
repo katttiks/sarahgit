@@ -61,7 +61,7 @@ bot.dialog('/', [
         //{
         session.send("Top matching results: ")
         var i 
-        for(i=0;i<8;i++)
+        for(i=0;i<5;i++)
         {                  
         //session.send("%s", obj1[i]['url']) 
           doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)
@@ -69,7 +69,7 @@ bot.dialog('/', [
           score = Math.floor(score*100)    
           session.send("Document name - " + doc_name +  "<br>" + "Relevance - " + score + "%" + "<br>" + "Document url - " + obj1[i]['url'])            
         }
-        doc_count = 8
+        doc_count = 5
         builder.Prompts.text(session, 'Did you find what you were looking for?');        //console.log(data);       
     //}
     // else{
