@@ -67,7 +67,7 @@ bot.dialog('/', [
           doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)
           score = Number(obj1[i]['scores'])
           score = Math.floor(score*100)    
-          session.send("Document name - " + doc_name +  "<br>" + "Relevance - " + score + "%" + "<br>" + "Document url - " + obj1[i]['url'])            
+          session.send("Document name - " + doc_name +  "<br>" + "Relevance - " + score + "%" + "<br>" +"Author - " + obj1[i]['author'] + "<br>" + "Document url - " + obj1[i]['url'])            
         }
         doc_count = 5
         builder.Prompts.text(session, 'Did you find what you were looking for?');        //console.log(data);       
@@ -91,7 +91,7 @@ bot.dialog('/', [
                 doc_name = obj1[i]['url'].substring(obj1[i]['url'].lastIndexOf('/') + 1, obj1[i]['url'].length)
                 score = Number(obj1[i]['scores'])
                 score = Math.floor(score*100)    
-                session.send("Document name - " + doc_name +  "<br>" + "Relevance - " + score + "%" + "<br>" + "Document url - " + obj1[i]['url'])                 
+                session.send("Document name - " + doc_name +  "<br>" + "Relevance - " + score + "%" + "<br>" +"Author - " + obj1[i]['author'] + "<br>" + "Document url - " + obj1[i]['url'])                 
             }
         builder.Prompts.text(session, 'Did you find what you were looking for this time?');        
         }
@@ -113,7 +113,7 @@ bot.dialog('/', [
             //session.send("%s", obj1[i]['url']) 
               score = Number(obj1[i]['scores'])
               score = Math.floor(score*100)    
-              session.send("Document name - " + doc_name +  "<br>" + "Relevance - " + score + "%" + "<br>" + "Document url - " + obj1[i]['url'])               
+              session.send("Document name - " + doc_name +  "<br>" + "Relevance - " + score + "%" + "<br>" +"Author - " + obj1[i]['author'] + "<br>" + "Document url - " + obj1[i]['url'])               
             }
         builder.Prompts.text(session, 'Hope you found it this time!');       
         }
@@ -127,7 +127,7 @@ bot.dialog('/', [
       answer = results.response
       if(answer.toLowerCase().indexOf('no')>-1||answer.toLowerCase().indexOf('not')>-1||answer.toLowerCase().indexOf('nope')>-1)
       {
-           session.send("Well, that's all the information I have.Ping me if you need help with some other topic.")
+           session.send("Well, that's all the information I have. You can call 557575757 for more information. Ping me hi if you want to know something else.")
       }
       else if(answer.toLowerCase().indexOf('yes')>-1||answer.toLowerCase().indexOf('yeah')>-1||answer.toLowerCase().indexOf('yup')>-1)  
       {
