@@ -127,7 +127,7 @@ bot.dialog('/', [
       answer = results.response
       if(answer.toLowerCase().indexOf('no')>-1||answer.toLowerCase().indexOf('not')>-1||answer.toLowerCase().indexOf('nope')>-1)
       {
-           session.send("Well, that's all the information I have. You can call 557575757 for more information. Ping me 'hi' if you want to know something else.")
+           session.send("Well, that's all the information I have. You can call 9611533662 for more information. Ping me 'hi' if you want to know something else.")
       }
       else if(answer.toLowerCase().indexOf('yes')>-1||answer.toLowerCase().indexOf('yeah')>-1||answer.toLowerCase().indexOf('yup')>-1)  
       {
