@@ -138,7 +138,7 @@ var doc_count = 0
 var intents = new builder.IntentDialog();
 bot.dialog('/',intents);
 
-intents.matches(/hi/i,[
+intents.matches(/h*/i,[
     function(session){
     session.beginDialog('/extra')
     //builder.Prompts.text(session, 'Hello, I am your cognitive Assistant. Ask me any question')
@@ -273,7 +273,7 @@ function(session, results){
 
 bot.dialog('/extra', [
     function (session) {
-        builder.Prompts.text(session, 'Hi! I am your cognitive assistant. Ask me any question');
+        builder.Prompts.text(session, 'Hi! I am your Cognitive oil assist. Ask me any question');
     },
     function(session, results)
     {
